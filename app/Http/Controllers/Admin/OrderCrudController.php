@@ -29,6 +29,15 @@ class OrderCrudController extends CrudController
         ]);
         CRUD::addColumn(['name' => 'total', 'label' => 'Totale', 'type' => 'number']);
         CRUD::addColumn(['name' => 'status', 'label' => 'Stato']);
+        CRUD::addColumn([
+            'name' => 'items',
+            'label' => 'Dettagli',
+            'type' => 'custom_html',
+            'value' => function ($entry) {
+                $count = $entry->items->count();
+                return '<a href="' . backpack_url('order-item') . '?order_id=' . $entry->id . '">Vedi ' . $count . ' elemento/i</a>';
+            }
+        ]);
     }
 
     protected function setupUpdateOperation()
