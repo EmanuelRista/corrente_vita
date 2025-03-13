@@ -27,10 +27,10 @@ class ProductCrudController extends CrudController
         CRUD::addColumn(['name' => 'price', 'label' => 'Prezzo', 'type' => 'number']);
         CRUD::addColumn(['name' => 'stock', 'label' => 'Stock', 'type' => 'number']);
         CRUD::addColumn([
-            'name' => 'category',
+            'name' => 'category.name',
             'label' => 'Categoria',
-            'type' => 'relationship',
-            'attribute' => 'name'
+            'type' => 'text',
+
         ]);
     }
 

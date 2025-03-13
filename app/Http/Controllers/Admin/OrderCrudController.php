@@ -23,10 +23,9 @@ class OrderCrudController extends CrudController
     {
         CRUD::addColumn(['name' => 'id', 'label' => 'ID Ordine']);
         CRUD::addColumn([
-            'name' => 'user',
+            'name' => 'user.email',
             'label' => 'Utente',
-            'type' => 'relationship',
-            'attribute' => 'email'
+            'type' => 'text'
         ]);
         CRUD::addColumn(['name' => 'total', 'label' => 'Totale', 'type' => 'number']);
         CRUD::addColumn(['name' => 'status', 'label' => 'Stato']);
